@@ -1,0 +1,157 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-image: url('../images/WhatsApp\ Image\ 2024-10-22\ at\ 20.58.35.jpeg');
+  background-size: cover;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Ajusta o padding */
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffffc5;
+  font-size: 0.9em; /* Tamanho da fonte */
+  width: 100%;
+  max-width: 600px; /* Largura máxima do cabeçalho */
+  padding: 15px; /* Padding do cabeçalho */
+  margin: 0 0 15px; /* Margem abaixo do cabeçalho */
+  border-radius: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* Define 5 colunas */
+  gap: 10px; /* Espaço entre as cartas */
+  width: 100%;
+  max-width: 700px; /* Largura máxima da grid */
+  margin: 0 auto; /* Centraliza a grid */
+}
+
+.card {
+  aspect-ratio: 2 / 3; /* Proporção da carta */
+  width: 100%; /* Mantém a largura da carta */
+  border-radius: 5px;
+  position: relative;
+  transition: all 400ms ease;
+  transform-style: preserve-3d;
+  background-color: #ccc;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #3bb856; /* Borda das cartas */
+  border-radius: 5px;
+  transition: all 400ms ease;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.back {
+  background-image: url('../images/ouriço\ \(4\).png');
+  backface-visibility: hidden;
+}
+
+.reveal-card {
+  transform: rotateY(180deg);
+}
+
+.disabled-card {
+  filter: saturate(0);
+  opacity: 0.5;
+}
+
+/* Responsividade */
+@media screen and (max-width: 920px) {
+  .grid {
+    grid-template-columns: repeat(5, 1fr); /* Mantém 5 colunas em telas menores */
+  }
+}
+
+/* Estilos para o contêiner dos botões */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre os botões */
+  margin: 10px 0; /* Margem acima e abaixo do contêiner */
+}
+
+/* Estilos para os botões */
+.action-btn {
+  padding: 5px 10px; /* Diminui o padding dos botões */
+  font-size: 0.9em; /* Tamanho da fonte dos botões */
+  color: #fff;
+  background-color: rgb(44, 161, 60);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 120px; /* Largura dos botões */
+}
+
+.action-btn:hover {
+  background-color: #218838;
+}
+
+#home-btn {
+  background-color: rgb(44, 161, 60);
+}
+
+#home-btn:hover {
+  background-color: #218838;
+}
+
+/* Estilos para o Modal */
+.modal {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Fundo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+  background-color: #fefefe;
+  padding: 10px; /* Diminui o padding do modal */
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px; /* Diminui a largura máxima do conteúdo do modal */
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Botão de Fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 20px; /* Tamanho do botão de fechar */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* Estilo adicional para o botão de reiniciar no modal */
+#restart-btn-modal {
+  margin-top: 10px; /* Margem acima do botão de reiniciar no modal */
+}
